@@ -57,8 +57,8 @@ jobs:
                   RELEASE_TYPE="standard"
               fi
           else
-              IS_RELEASE=no
-              RELEASE_TYPE="n/a"
+              IS_RELEASE=yes
+              RELEASE_TYPE="standard"
           fi
           # Print results.
           echo "::group::Results"
