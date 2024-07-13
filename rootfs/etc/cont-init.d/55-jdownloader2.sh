@@ -11,6 +11,11 @@ if [ ! -f /config/MegaBasterd/MegaBasterd.run ]; then
     cp -r /defaults/MegaBasterd /config
 fi
 
+# Create a file to indicate that MegaBasterd is running in portable mode.
+if [ ! -f /config/MegaBasterd/jar/.megabasterd_portable ]; then
+    touch /config/MegaBasterd/jar/.megabasterd_portable
+fi
+
 # Take ownership of the output directory.
 take-ownership --not-recursive /output
 
