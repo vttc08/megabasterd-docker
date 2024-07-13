@@ -17,7 +17,7 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software download URLs.
-ARG VERSION=7.99
+ARG VERSION=8.21
 ARG DOWNLOAD_URL=https://github.com/tonikelope/megabasterd/releases/download/v${VERSION}/MegaBasterdLINUX_${VERSION}_portable.zip
 
 # Download MegaBasterd
@@ -76,7 +76,7 @@ RUN \
     true
 
 # Define mountable directories.
-VOLUME ["/output"]
+VOLUME ["/output", "/config"]
 
 # Metadata.
 LABEL \

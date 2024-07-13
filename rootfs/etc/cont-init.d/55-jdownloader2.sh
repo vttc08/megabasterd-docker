@@ -8,8 +8,7 @@ mkdir -p /config/logs
 
 # Set default configuration on new install.
 if [ ! -f /config/MegaBasterd/MegaBasterd.run ]; then
-    cp -r /defaults/MegaBasterd /config/.
-    cp -r /defaults/cfg /config/.
+    cp -r /defaults/MegaBasterd /config
 fi
 
 # Take ownership of the output directory.
