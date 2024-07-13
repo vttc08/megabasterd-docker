@@ -17,24 +17,6 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software download URLs.
-ARG VERSION=8.21
-ARG DOWNLOAD_URL=https://github.com/tonikelope/megabasterd/releases/download/v${VERSION}/MegaBasterdLINUX_${VERSION}_portable.zip
-
-# Download MegaBasterd
-FROM --platform=$BUILDPLATFORM alpine:3.16 AS alp
-ARG DOWNLOAD_URL
-RUN \
-    apk --no-cache add curl unzip && \
-    mkdir -p /defaults && \
-    cd /defaults && \
-#    curl -# -L -o /defaults/MegaBasterd.jar ${DOWNLOAD_URL}
-    curl -# -L -o /defaults/MegaBasterd.zip ${DOWNLOAD_URL} && \
-    unzip -q MegaBasterd.zip && \
-    mv MegaBasterdLINUX/ MegaBasterd && \
-    rm -rf MegaBasterd/jre && \
-    # Cleanup.
-    apk del unzip curl && \
-    rm -rf MegaBasterd.zip /tmp/* /tmp/.[!.]*
 
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.16-v4.4.2
@@ -67,7 +49,6 @@ RUN \
 
 # Add files.
 COPY rootfs/ /
-COPY --from=alp /defaults/MegaBasterd /defaults/MegaBasterd
 
 # Set internal environment variables.
 RUN \
