@@ -19,7 +19,7 @@ ARG DOCKER_IMAGE_VERSION=
 # Define software download URLs.
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.16-v4.4.2
+FROM jlesage/baseimage-gui:alpine-3.16-v4.6
 
 ARG DOCKER_IMAGE_VERSION
 
